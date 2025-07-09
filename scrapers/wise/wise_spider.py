@@ -65,7 +65,7 @@ class WiseSpider:
         percentage_value = re.search(r'(\d+\.\d+%)', percentage_fee).group(1) if re.search(r'(\d+\.\d+%)', percentage_fee) else "Unknown"
         flat_fee = total_fees_row.select_one("strong:last-child span").text.strip()
 
-        return f"{', '.join(individual_fees)}, Total: {flat_fee}, Percentage: {percentage_value}"
+        return f" Total: {flat_fee}, Percentage: {percentage_value}"
 
     def extract_transfer_time(self) -> str:
         WebDriverWait(self.driver, 10).until(
