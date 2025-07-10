@@ -25,7 +25,6 @@ class XoomSpider:
             EC.presence_of_element_located((By.TAG_NAME, "body"))
         )
         time.sleep(2)
-        print("Page loaded, URL:", self.driver.current_url)
 
         try:
             cookie_button = WebDriverWait(self.driver, 5).until(
@@ -62,7 +61,7 @@ class XoomSpider:
         amount_input_field.send_keys(amount)
         amount_input_field.send_keys(Keys.ENTER)
 
-        print("Successfully entered 1000 USD") # TODO : Remove in final production code
+        # print("Successfully entered 1000 USD") # TODO : Remove in final production code
 
         time.sleep(1)
 
@@ -78,7 +77,7 @@ class XoomSpider:
         time.sleep(0.5)
 
         receiving_value = received_amount.get_attribute("value")
-        print(f"Receiving input value: {receiving_value}") # TODO : Remove in final production code
+        # print(f"Receiving input value: {receiving_value}") # TODO : Remove in final production code
 
     def extract_rate_fees(self):
         WebDriverWait(self.driver, 10).until(
@@ -96,7 +95,7 @@ class XoomSpider:
             By.CSS_SELECTOR, "p._18ax91o1._18ax91o0._1mcye512"
         )
         exchange_rate = rate_element.text
-        print(f"Exchange Rate: {exchange_rate}") # TODO : Remove in final production code
+        # print(f"Exchange Rate: {exchange_rate}") # TODO : Remove in final production code
 
         fee_button = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.ID, "xoom_fees_info"))
@@ -130,7 +129,7 @@ class XoomSpider:
         # Find and print the minimum fee
         min_fee = min(fees) if fees else 0.0
         min_fee_str = f"Total: {min_fee:.2f} USD"
-        print(f"Transaction Fee: {min_fee} USD") # TODO : Remove in final production code
+        # print(f"Transaction Fee: {min_fee} USD") # TODO : Remove in final production code
         return exchange_rate, min_fee_str
 
     def scrape(self):
