@@ -1,6 +1,7 @@
 import asyncio
 import re
 from wise.wise_spider import WiseSpider
+from xoom.xoom_spider import XoomSpider
 
 def extract_total_fee(fees_string: str) -> float:
     match = re.search(r'Total: (\d+\.\d{2}) USD', fees_string)
@@ -9,7 +10,7 @@ def extract_total_fee(fees_string: str) -> float:
 
 async def main():
     global sorted_fees
-    spiders = [WiseSpider()]
+    spiders = [WiseSpider(), XoomSpider()]
     scraped_data_hashmap = {}
     for spider in spiders:
         data = spider.scrape()

@@ -8,12 +8,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 import re
 from scrapers.models.base_page import BasePage
-from scrapers.utils.utils import setup_drivver
+from scrapers.utils.utils import setup_driver
 
 
 class WiseSpider:
     def __init__(self):
-        self.driver = setup_drivver(headless=True)
+        self.driver = setup_driver(headless=True)
         self.driver.implicitly_wait(5)
         self.page = BasePage(self.driver)
 
