@@ -2,6 +2,7 @@ import asyncio
 import re
 import threading
 
+from scrapers.taptap.taptap_spider import TapTapSpider
 from wise.wise_spider import WiseSpider
 from xoom.xoom_spider import XoomSpider
 
@@ -25,7 +26,7 @@ def run_spider(spider, results,lock):
 
 async def main():
     global sorted_fees
-    spiders = [WiseSpider(), XoomSpider()]
+    spiders = [WiseSpider(), XoomSpider(), TapTapSpider()]
     scraped_data_hashmap = {}
     lock = threading.Lock()
     threads = []

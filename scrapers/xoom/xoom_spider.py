@@ -141,7 +141,7 @@ class XoomSpider:
         # Input amount (1000 USD)
         self.send_amount("1000")
 
-        # Retrieve receiving amount
+        # Click on receiving amount
         self.receive_amount()
 
         # Extract rate and fee
